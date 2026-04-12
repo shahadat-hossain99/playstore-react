@@ -7,6 +7,7 @@ import RootLayout from "./layout/RootLayout";
 import Homepage from "./pages/homepage/Homepage";
 import Apps from "./pages/apps/Apps";
 import InstallApps from "./pages/installApps/InstallApps";
+import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
         Component: InstallApps,
       },
     ],
-    errorElement: <h2>This page is not found</h2>,
+    errorElement: <NotFoundPage />,
   },
 ]);
 
