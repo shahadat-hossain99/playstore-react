@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AppCard from "../ui/AppCard";
 // import { use } from "react";
 
 // const appsPromise = fetch("/data.json").then((res) => res.json());
@@ -22,7 +23,7 @@ const TrendingApps = () => {
   console.log(apps, "array of apps");
 
   return (
-    <div>
+    <div className=" container mx-auto">
       <div className="mb-8 text-center p-20 space-y-4">
         <h2 className="font-bold text-5xl">Trending Apps</h2>
         <p className="text-gray-400">
@@ -30,7 +31,12 @@ const TrendingApps = () => {
         </p>
       </div>
 
-      <div>Total Apps :{apps.length}</div>
+      <h3> Total Apps :{apps.length}</h3>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {apps.map((app, ind) => {
+          return <AppCard key={ind} app={app}></AppCard>;
+        })}
+      </div>
     </div>
   );
 };
