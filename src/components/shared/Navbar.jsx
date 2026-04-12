@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="shadow-2xl bg-gray-200">
+    <nav className="shadow-2xl bg-gray-100">
       <div className="flex justify-between gap-4 items-center  py-3 container mx-auto">
         <NavLink to="/">
           <div className="flex justify-between items-center gap-1">
