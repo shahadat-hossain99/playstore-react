@@ -21,7 +21,7 @@ const TrendingApps = () => {
       setTimeout(() => {
         setApps(data);
         setLoading(false);
-      }, 4000);
+      }, 2000);
     };
     fetchData();
   }, []);
