@@ -9,7 +9,7 @@ import { RouterProvider } from "react-router/dom";
 // import InstallApps from "./pages/installApps/InstallApps";
 
 import { router } from "./router/Routes";
-import InstalledAppsProvider from "./context/InstalledAppsProvidert";
+import InstalledAppsProvider from "./context/InstalledAppsProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

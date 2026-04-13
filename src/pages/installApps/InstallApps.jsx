@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { InstalledAppsContext } from "../../context/InstalledAppsContext";
 
 const InstallApps = () => {
-  const contextData = useContext(InstalledAppsContext);
-  console.log(contextData);
+  const { installedApps, setInstalledApps } = useContext(InstalledAppsContext);
+  console.log(installedApps, setInstalledApps);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
 import useApps from "../../hooks/useApps";
 import DImg from "../../assets/images/icon-downloads.png";
@@ -6,6 +6,7 @@ import RImg from "../../assets/images/icon-ratings.png";
 import ReImg from "../../assets/images/icon-review.png";
 import { HashLoader } from "react-spinners";
 import NotFound from "../notFoundPage/NotFoundPage";
+import { InstalledAppsContext } from "../../context/InstalledAppsContext";
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const AppDetails = () => {
   const { apps, loading } = useApps();
   //   console.log(apps, loading);
 
-  const [installedApps, setInstalledApps] = useState([]);
+  const { installedApps, setInstalledApps } = useContext(InstalledAppsContext);
 
   const expectedApp = apps.find((app) => app.id == id);
   console.log(expectedApp);
