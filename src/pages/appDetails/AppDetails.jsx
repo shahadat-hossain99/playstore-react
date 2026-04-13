@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import useApps from "../../hooks/useApps";
 import DImg from "../../assets/images/icon-downloads.png";
@@ -12,6 +12,8 @@ const AppDetails = () => {
   //   console.log(id, "where is it");
   const { apps, loading } = useApps();
   //   console.log(apps, loading);
+
+  const [installedApps, setInstalledApps] = useState([]);
 
   const expectedApp = apps.find((app) => app.id == id);
   console.log(expectedApp);
@@ -30,11 +32,15 @@ const AppDetails = () => {
       </div>
     );
   }
-
-  // 3. Handle the case where the ID is wrong or app doesn't exist
+  //   // 3. Handle the case where the ID is wrong or app doesn't exist
   if (!expectedApp) {
     return <NotFound></NotFound>;
   }
+
+  const handleInstallApp = () => {
+    setInstalledApps([...installedApps, expectedApp]);
+  };
+  console.log(installedApps, "hi");
 
   return (
     <div className="container mx-auto mt-20">
@@ -74,7 +80,12 @@ const AppDetails = () => {
                 <h3 className="font-bold text-4xl">{expectedApp.reviews}</h3>
               </div>
             </div>
-            <button className="btn bg-purple-400 mt-4 text-white">
+            <button
+              onClick={() => {
+                handleInstallApp();
+              }}
+              className="btn bg-purple-400 mt-4 text-white"
+            >
               Install Now ({expectedApp.size} MB)
             </button>
           </div>

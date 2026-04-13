@@ -9,9 +9,14 @@ import { RouterProvider } from "react-router/dom";
 // import InstallApps from "./pages/installApps/InstallApps";
 
 import { router } from "./router/Routes";
+import InstalledAppsProvider from "./context/InstalledAppsProvidert";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+    <InstalledAppsProvider>
+      {" "}
+      <RouterProvider router={router} />
+    </InstalledAppsProvider>
+    ,
   </StrictMode>,
 );
