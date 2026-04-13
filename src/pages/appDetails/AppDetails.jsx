@@ -7,6 +7,7 @@ import ReImg from "../../assets/images/icon-review.png";
 import { HashLoader } from "react-spinners";
 import NotFound from "../notFoundPage/NotFoundPage";
 import { InstalledAppsContext } from "../../context/InstalledAppsContext";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -39,8 +40,17 @@ const AppDetails = () => {
   }
 
   const handleInstallApp = () => {
-    setInstalledApps([...installedApps, expectedApp]);
+    const isExistApp = installedApps.find((apps) => apps.id == expectedApp.id);
+
+    if (isExistApp) {
+      toast.warning("This book is already Exist");
+      return;
+    } else {
+      setInstalledApps([...installedApps, expectedApp]);
+      toast.success(`${expectedApp.title} is Installing`);
+    }
   };
+
   console.log(installedApps, "hi");
 
   return (
