@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import AppCard from "../ui/AppCard";
 import { HashLoader } from "react-spinners";
 import { Link } from "react-router";
+import useApps from "../../hooks/useApps";
 // import { use } from "react";
 
-// const appsPromise = fetch("/data.json").then((res) => res.json());
+//!way of data fetch. const appsPromise = fetch("/data.json").then((res) => res.json());
 
 const TrendingApps = () => {
   // const apps = use(appsPromise);
   // console.log(apps);
 
-  const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // ? Custom hook er before version for data fetch also can add fallback
+  // const [apps, setApps] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      console.log(data);
-      setTimeout(() => {
-        setApps(data);
-        setLoading(false);
-      }, 2000);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch("/data.json");
+  //     const data = await res.json();
+  //     console.log(data);
+  //     setTimeout(() => {
+  //       setApps(data);
+  //       setLoading(false);
+  //     }, 2000);
+  //   };
+  //   fetchData();
+  // }, []);
+
+  const { apps, loading } = useApps();
 
   console.log(apps, "array of apps");
   console.log(loading, "array of apps");

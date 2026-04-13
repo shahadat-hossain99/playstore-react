@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { HashLoader } from "react-spinners";
 import AppCard from "../../components/ui/AppCard";
+import useApps from "../../hooks/useApps";
 
 const Apps = () => {
-  const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      console.log(data);
-      setTimeout(() => {
-        setApps(data);
-        setLoading(false);
-      }, 2000);
-    };
-    fetchData();
-  }, []);
+  const { apps, loading } = useApps();
 
   return (
     <div className=" container mx-auto my-15">
